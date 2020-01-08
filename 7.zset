@@ -1,0 +1,48 @@
+1.基本介绍
+    zset是一种有序集合结构，由key(键) + value(值) + score(分数)三部分组成
+2.重要API
+
+zadd key score element(可以是多对) o(logN)
+# 添加score和element
+
+zrem key element(可以是多个)  o(1)
+# 删除元素
+
+zscore key element o(1)
+# 返回元素的分数
+
+zincrby key increScore element o(1)
+# 增加或减少元素的分数
+
+zcard key o(1)
+# 返回元素的总个数
+
+zrevrank key element
+# 获取指定元素的排名(从大到小)
+
+zrank key element
+# 获取指定元素的排名(从小到大)
+
+zrange key start end withscores
+# 将指定范围内的元素带分数返回
+
+zrevrange key start end withscores
+# 将指定范围内的元素带分数返回(从高到低)
+
+
+zrangebyscore key minScore maxScore withscores o(log(n) + m)
+# 返回指定分数范围内的升序元素(带分值)
+
+zrevrangebyscore key minScore maxScore withscores o(log(n) + m)
+# 返回指定分数范围内的升序元素(带分值，从高到低)
+
+zcount key minScore maxScore o(log(n) + m)
+# 返回有序集合内在指定分数范围内的个数
+
+zremrangebyrank key start end o(log(n) + m)
+# 删除指定排名内的升序元素
+
+zremrangebyscore key minScore maxScore o(log(n) + m)
+# 删除指定分数内的升序元素
+
+zinterstore zunionstore(交集并集计算，并存储结果)

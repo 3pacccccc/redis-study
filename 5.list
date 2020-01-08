@@ -1,0 +1,41 @@
+rpush key value1 value2 ... valueN  o(1~n)
+# 从列表右端插入值(1-N个)
+
+lpush key value1 value2 ... valueN o(1~n)
+# 从列表左端插入值(1-N个)
+
+linsert key before|after value newValue o(n)
+# 在list指定的值前|后插入newValue
+
+lpop key o(1)
+# 从列表左侧弹出一个item
+
+rpop key o(1)
+# 从列表右侧弹出一个item
+
+lrem key count value o(n)
+# 根据count值，从列表中删除所有value相等的项
+(1)count>0,从左到右，删除最多count个value相等的项
+(2)count<0,从右到左，删除最多math.abs(count)个value相等的项
+(1)count=0,删除所有value相等的项
+
+ltrim key start end o(n)
+# 按照索引范围修剪列表(改变原list)
+
+lrange key start end(包含end) o(n)
+# 获取列表指定索引范围所有item
+
+lindex key index o(n)
+# 获取列表指定索引的item
+
+llen key o(1)
+# 获取长度
+
+lset key index newValue o(n)
+# 设置列表指定索引值为newValue
+
+blpop key timeout o(1)
+# lpop阻塞版本，timeout是阻塞超时时间，timeout=0为永不阻塞
+
+brpop key timeout o(1)
+# rpop阻塞版本，timeout是阻塞超时时间，timeout=0为永不阻塞

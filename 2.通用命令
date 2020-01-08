@@ -1,0 +1,8 @@
+一、通用命令
+    keys -> O(n)时间复杂度
+    dbsize(数据库的存储个数) O(1)
+    exists key (键是否存在) O(1)
+    del key[key...] 删除键 O(1)
+    expire key seconds (设置过期时间) O(1)
+    type key(查看key的类型) O(1)
+

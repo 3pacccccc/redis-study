@@ -1,0 +1,34 @@
+特点：无序，无重复，集合间操作
+
+sadd key element o(1)
+# 向集合key添加element(如果element已经存在，添加失败)
+
+srem key element o(1)
+# 将集合key中的element移除掉
+
+scard user:1:follow
+# 计算集合user:1:follow的个数
+
+sismember user:1:follow it
+# 判断it是否在集合中(是返回1，否返回0)
+
+srandmember user:1:follow count=5
+# 从user:1:follow随机取出5个元素
+
+spop user:1:follow 5
+# 从user:1:follow中随机弹出5个元素
+
+smembers user:1:follow
+# 获取user:1:follow中的所有元素(注意，返回结果无序，并且数据量大的时候谨慎使用)
+
+sdiff user:1:follow user:2:follow
+# 求集合的差集
+
+sinter user:1:follow user:2:follow
+# 交集
+
+sunion user:1:follow user:2:follow
+# 并集
+
+sdiff|sinter|sunion + store destkey
+# 将差集、交集、并集结果保存在destkey中

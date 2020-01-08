@@ -1,0 +1,37 @@
+hget key field o(1)
+# 获取hash key对应的field的value
+
+hset key field value o(1)
+# 设置hash key对应field的value
+
+hdel key field o(1)
+# 删除hash key对应field的value
+
+hexists key field o(1)
+# 判断hash 可以是否有field
+
+hlen key o(1)
+# 获取hash key field的数量
+
+hmget key field1 field2 field3 ... fieldN o(n)
+# 批量获取hash key的一批field对应的值
+
+hmset key field1 value1 field2 value2 ... fieldN valueN o(n)
+# 批量设置hash key的一批field value
+
+hgetall key o(n)
+# 返回hash key对应的所有的field和value. 小心使用，牢记单线程!!!
+
+hvals key o(n)
+# 返回hash key对应所有field的value
+
+hkeys key o(n)
+# 返回hash key对应所有field
+
+hsetnx key field value
+# 设置hash key对应field的value(如果field已经存在，则失败)
+
+hincrby key field intCounter
+# hash key对应的field的value自增intCounter
+
+
