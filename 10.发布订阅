@@ -1,0 +1,16 @@
+一、角色
+    1.发布者(publisher)
+    2.订阅者(subscriber)
+    3.频道(channel)
+
+二、API
+    publish channel_name(频道名称) message(消息) # 返回integer 1代表订阅者数为1
+    subscribe channel_name  # 订阅频道
+    unsubscribe channel_name  # 取消订阅频道
+    psubscribe [pattern...] # 按照pattern(正则)模式批量订阅
+    punsubscribe [pattern...] # 按照pattern(正则)模式批量取消订阅
+    pubsub channels # 列出至少有一个订阅者的频道
+    pubsub numsub [channel...] # 列出给定频道的订阅者数量
+    pubsub numpat # 列出被订阅模式的数量
+
+

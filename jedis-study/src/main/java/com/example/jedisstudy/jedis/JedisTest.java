@@ -1,11 +1,7 @@
 package com.example.jedisstudy.jedis;
 
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.Tuple;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import redis.clients.jedis.Pipeline;
 
 public class JedisTest {
     public static void main(String[] args) {
@@ -58,5 +54,14 @@ public class JedisTest {
 //        for (Tuple i : zsetResult){
 //            System.out.println(i);
 //        }
+
+        // pipeline操作
+        for (int i = 0; i < 100; i++) {
+            Pipeline pipeline = jedis.pipelined();
+            for (int j = i * 100; j < (i + 1) * 100; j++) {
+                pipeline.hset("hashkey:" + j, "field" + j, "value" + j);
+            }
+            pipeline.syncAndReturnAll();
+        }
     }
 }
